@@ -20,7 +20,6 @@
             background-position: center; /* Memusatkan gambar */
             background-repeat: no-repeat; /* Mencegah pengulangan gambar */
         }
-
         .container {
             text-align: center;
             display: grid;
@@ -28,7 +27,6 @@
             height: 70%;
             width: 70%;
         }
-
         .button {
             padding: 5px;
             font-size: 18px;
@@ -45,36 +43,30 @@
             justify-content: center;
             align-items: center;
         }
-
         .button img {
             max-width: 70%;
             max-height: 70%;
         }
-
         .button span {
             margin-top: 10px;
             font-size: 14px;
             color: #333;
         }
-
         .button:hover {
             background: #f7f7f7;
             transform: scale(1.1);
         }
-
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
         @media (min-width: 769px) {
             .container {
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: repeat(2, auto);
             }
         }
-       
         .copyright {
             font-size: 14px;
             color: #777;
