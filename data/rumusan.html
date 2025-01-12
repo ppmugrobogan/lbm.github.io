@@ -665,15 +665,7 @@ td button:active {
     </style>
 </head>
 <body>
- <script>
-        // Cek apakah pengguna sudah login
-        if (localStorage.getItem('loggedin') !== 'true') {
-            window.location.href = '../login.html';
-        } else {
-            // Menyembunyikan URL setelah berhasil login
-            history.replaceState(null, null, ' ');
-        }
-    </script>
+
   <div class="menu">
     <div class="container" onclick="toggleMenu(this)">
         <div class="bar1"></div>
@@ -710,12 +702,12 @@ td button:active {
 </div>
 <button class="tombolinput" id="toggleFormBtn1"></button>
 <div id="popupFormContainer1" class="chat-form-container" style="display:none;">
-  <form name="chattdata1" id="chatForm1" class="chat-form" method="post" action="">
+<form name="chattdata1" id="chatForm1" class="chat-form" method="post" action="">
     <textarea name="JUDUL" id="judulInput1" class="chat-input1" placeholder="Judul" required></textarea>
     <textarea name="IBAROH" id="ibaroInput1" class="chat-input2" placeholder="الصق التعبير هنا ..." required></textarea>
     <textarea name="KETERANGAN" id="keteranganInput1" class="chat-input3" placeholder="Keterangan..."></textarea>
     <input class="kirim" type="submit" value="INPUT">
-  </form>
+</form>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
       const toggleFormBtn1 = document.getElementById('toggleFormBtn1');
