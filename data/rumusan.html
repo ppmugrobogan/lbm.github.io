@@ -129,12 +129,12 @@ body {
   font-family: sans-serif; 
 }
 .chat-input1 {
-  height: 36px;
+  height: 45px;
 }
 .chat-input2,
 .chat-input3,
 .chat-input4 {
-  height: 150px;
+  height: 350px;
 }
 .chat-input1:focus,
 .chat-input2:focus,
@@ -143,10 +143,7 @@ body {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
-.chat-input2 {
-  direction: rtl;
-  font-family: 'CustomArabicFont', 'Traditional Arabic', Tahoma, sans-serif;
-}
+
 .kirim {
   background: linear-gradient(45deg, #256bbd, #4a90e2);
   color: #fff;
@@ -704,8 +701,7 @@ td button:active {
 <div id="popupFormContainer1" class="chat-form-container" style="display:none;">
 <form name="chattdata1" id="chatForm1" class="chat-form" method="post" action="">
     <textarea name="JUDUL" id="judulInput1" class="chat-input1" placeholder="Judul" required></textarea>
-    <textarea name="IBAROH" id="ibaroInput1" class="chat-input2" placeholder="الصق التعبير هنا ..." required></textarea>
-    <textarea name="KETERANGAN" id="keteranganInput1" class="chat-input3" placeholder="Keterangan..."></textarea>
+    <textarea name="IBAROH" id="ibaroInput1" class="chat-input2" placeholder="Buat hasil rumusan di sini..." required></textarea>
     <input class="kirim" type="submit" value="INPUT">
 </form>
 <script>
@@ -715,7 +711,6 @@ td button:active {
       const form1 = document.forms['chattdata1'];
       const judulInput1 = document.getElementById('judulInput1');
       const ibaroInput1 = document.getElementById('ibaroInput1');
-      const keteranganInput1 = document.getElementById('keteranganInput1');
   
       toggleFormBtn1.addEventListener('click', () => {
         popupFormContainer1.style.display = (popupFormContainer1.style.display === 'none' || popupFormContainer1.style.display === '') ? 'block' : 'none';
@@ -733,7 +728,7 @@ td button:active {
           formData.set(key, value.replace(/<br>/g, '\n'));
         }
   
-        fetch('https://script.google.com/macros/s/AKfycbymSGhIvdD3GEsnvEk-6FPnB4AaHyCLukmabtSHVFJL6obt5xkxvpC1FsFAzbCRk8p4YA/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbzciWu4c6SQq2myL3V5c2CRbNYQt8vMVBpvVtPke1Lki8L8o-jLGESOu6kkCUYISLkO/exec', {
           method: 'POST',
           body: formData,
         })
