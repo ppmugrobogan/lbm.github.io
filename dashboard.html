@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Apple Touch Icons -->
+    <!-- Web Manifest for Progressive Web App -->
+    <link rel="manifest" href="ico/manifest.json">
+    <!-- Microsoft-specific Meta Tags -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ico/ms-icon-144x144.png">
+    <!-- Theme color for browser UI -->
+    <meta name="theme-color" content="#ffffff">
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    flex-direction: column; /* Susun elemen secara vertikal */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    justify-content: flex-start; /* Tempatkan elemen di bagian atas */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    height: 100vh;
+}
+@media (max-width: 768px) {
+    .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        grid-template-columns: 1fr; /* 1 kolom di layar sangat kecil */
+    }
+}
+
+.container {
+    display: block; /* Atur sebagai flex container */
+}
+
+.page.active {
+    display: block; /* Atur sebagai flex container */
+    }
+    .page.dashboard {
+    display: flex; /* Aktifkan flexbox */
+    flex-direction: column; /* Atur elemen dalam kolom (vertikal) */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    min-height: 100vh; /* Pastikan elemen memenuhi tinggi layar */
+    padding: 0px; /* Tambahkan sedikit ruang di sekitar elemen */
+    box-sizing: border-box; /* Termasuk padding dalam ukuran elemen */
+    margin-top: 0%;
+}
+.banner {
+    width: auto; /* Lebar penuh */
+    max-width: 370px; /* Batas maksimum lebar */
+    margin-bottom: 20px; /* Jarak dengan tombol di bawahnya */
+    justify-items: center; /* Pusatkan tombol di setiap kolom */
+    margin-top: 0%;
+}
+
+.banner img {
+    width: 100%; /* Gambar mengikuti lebar banner */
+    height: auto; /* Jaga rasio gambar */
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 0%;
+}
+
+.button-container {
+    display: grid; /* Aktifkan grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom dalam satu baris */
+    grid-auto-rows: auto; /* Tinggi baris mengikuti konten */
+    gap: 15px; /* Jarak antar tombol */
+    justify-items: center; /* Pusatkan tombol di setiap kolom */
+    width: 100%;
+    max-width: 370px; /* Batas maksimum lebar */
+}
+.button-item {
+    text-align: center;
+}
+        .button-container button {
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 0px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-content: center;
+            align-items: center;
+            width: 100px; /* Fixed width */
+            height: 90px; /* Fixed height */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .button-container button:hover {
+            background-color: #3080f7;
+            color: #fff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+        .button-container img {
+            width: 60%; /* Consistent image size */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .button-container button:hover img {
+            transform: scale(1.1);
+        }
+        .button-container p {
+            margin: 5px 0 0 0;
+            padding: 5px;
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            color: white;
+            font-size: 12px; /* Slightly smaller font size for better fit */
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 90px; /* Consistent width */
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .button-container p:hover {
+            background: linear-gradient(45deg, #256bbd, #4a90e2);
+        }
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar button:hover {
+            color: #3080f7;
+        }
+
+        .nav-bar button.active {
+            color: #3080f7;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+  <!-- Halaman Dashboard -->
+    <div class="page dashboard" id="dashboard-page" >
+    <div class="banner">
+        <img src="GAMBAR/kkf.jpg" alt="Banner"> <!-- Ganti dengan path gambar banner Anda -->
+    </div>
+    <div class="button-container">
+        <div class="button-item">
+            <button onclick="window.location.href='#'"><img src="GAMBAR/info.png" alt="Button 1"></button>
+            <p>Info</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='/data/sistem/login.html'"><img src="GAMBAR/DESAIN.png" alt="Button 2"></button>
+            <p>Admin</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='#'"><img src="GAMBAR/DOKUMENTASI.png" alt="Button 3"></button>
+            <p>Media KKF</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='https://digitalsantri.github.io/DATA/MAKTABAH/PERPUSTAKAAN.html'"><img src="GAMBAR/PERPUSTAKAAN.png" alt="Button 4"></button>
+            <p>Maktabah</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='/data/rumusan.html'"><img src="GAMBAR/SANTRI.png" alt="Button 5"></button>
+            <p>Rumusan</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='data/pdf.html'"><img src="GAMBAR/buku.png" alt="Button 6"></button>
+            <p>Kitab PDF</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='chatt.html'"><img src="GAMBAR/muslim.png" alt="Button 7"></button>
+            <p>Konsultasi</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/KAJIAN.html'"><img src="GAMBAR/KAJIAN.png" alt="Button 8"></button>
+            <p>Ajukan rumusan</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/catatan.html'"><img src="GAMBAR/CATATAN.png" alt="Button 9"></button>
+            <p>Ajukan soal</p>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br>
+  </div>
+  </div>
+    <!-- Tombol Navigasi -->
+<div class="nav-bar">
+      <button id="btn-home" onclick="navigateTo(0)"><i class="fas fa-home"></i> Beranda</button>
+      <button id="btn-library" onclick="navigateTo(1)"><i class="fas fa-book"></i> Pustaka</button>
+      <button id="btn-dashboard" class="active" onclick="navigateTo(2)"><i class="fas fa-border-all"></i> Dashboard</button>
+</div>
+<script>
+    function navigateTo(pageIndex) {
+    const pages = ["kkfapp.html", "pustaka.html", "dashboard.html"];
+    
+    if (pageIndex >= 0 && pageIndex < pages.length) {
+        window.location.href = pages[pageIndex];
+    }
+}
+</script>
+</body>
+</html>

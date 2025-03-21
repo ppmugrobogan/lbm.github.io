@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Input Hasil Rumusan</title>
+  <style>
+    body {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+    min-height: 100vh;      /* Ensure the body takes up the full height of the viewport */
+    margin: 0;              /* Remove default margins */
+    padding: 0;             /* Remove default padding */
+    background-color: #f0f0f0; /* Optional: Set a background color */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
+}
+    /* Gaya tombol dan pop-up */
+    .popup-form-container {
+      display: none;
+      position: fixed;
+      width: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .kirim {
+      background: linear-gradient(45deg, #3080f7, #56ccf2);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .kirim:hover {
+      background-color: #3080f7;
+    }
+
+  /* Gaya untuk container tombol */
+  .buttons-container {
+    margin: 20px auto;
+    text-align: center; /* Pusatkan tombol di tengah container */
+    display: flex; /* Gunakan flexbox untuk tata letak */
+    justify-content: center; /* Tombol sejajar di tengah */
+    gap: 15px; /* Jarak antar tombol */
+    flex-wrap: wrap; /* Tombol akan turun ke baris berikutnya jika terlalu banyak */
+  }
+
+  /* Gaya umum untuk tombol */
+  button {
+    background: linear-gradient(45deg, #3080f7, #56ccf2);
+    color: white; /* Warna teks */
+    width: 150PX;
+    border: none; /* Tanpa border */
+    padding: 12px 25px; /* Spasi dalam */
+    font-size: 16px; /* Ukuran teks */
+    font-weight: 600; /* Tebal teks */
+    border-radius: 5px; /* Sudut melengkung penuh */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    cursor: pointer; /* Kursor berubah saat hover */
+    transition: all 0.3s ease; /* Efek transisi */
+  }
+
+  /* Efek hover pada tombol */
+  button:hover {
+    background-color: #3080f7;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam */
+    transform: translateY(-2px); /* Efek naik sedikit */
+  }
+
+  /* Efek fokus pada tombol */
+  button:focus {
+    outline: none; /* Hilangkan outline default */
+    box-shadow: 0 0 0 3px rgba(72, 239, 128, 0.5); /* Lingkaran fokus */
+  }
+
+  /* Gaya tombol kecil */
+  button.small {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  /* Gaya tombol besar */
+  button.large {
+    padding: 16px 30px;
+    font-size: 18px;
+  }
+
+  /* Gaya tombol dengan ikon */
+  button.with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Jarak antara ikon dan teks */
+  }
+
+  button.with-icon img {
+    width: 20px; /* Ukuran ikon */
+    height: 20px;
+  }
+
+  textarea.JUDUL {
+    width: 90%; /* Lebar penuh */
+    max-width: 100%; /* Jangan melebihi lebar container */
+    height: 20px; /* Sesuaikan otomatis */
+    padding: 15px; /* Ruang di dalam textarea */
+    font-size: 16px; /* Ukuran teks */
+    font-family: 'Arial', sans-serif; /* Font yang bersih dan mudah dibaca */
+    color: #333; /* Warna teks */
+    background-color: #eef6ff; /* Warna latar belakang biru lembut */
+    border: 1px solid #ccc; /* Garis tepi tipis */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan dalam */
+    resize: vertical; /* Hanya ubah tinggi */
+    transition: all 0.3s ease; /* Animasi transisi */
+    font-weight: bold; /* Teks tebal */
+  }
+
+  /* Efek hover untuk JUDUL */
+  textarea.JUDUL:hover {
+    background-color: #fff; /* Putih lebih cerah */
+    border-color: #007BFF; /* Warna biru lembut */
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15); /* Perkuat bayangan */
+  }
+
+  /* Efek fokus untuk JUDUL */
+  textarea.JUDUL:focus {
+    outline: none; /* Hilangkan outline default */
+    border-color: #007BFF; /* Warna biru fokus */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2); /* Lingkaran fokus lembut */
+  }
+
+    /* Style khusus untuk IBAROH */
+    textarea.IBAROH {
+    width: 90%; /* Lebar penuh */
+    max-width: 100%; /* Jangan melebihi lebar container */
+    min-height: 300px; /* Tinggi minimum */
+    height: auto; /* Sesuaikan otomatis */
+    padding: 15px; /* Ruang di dalam textarea */
+    font-size: 16px; /* Ukuran teks */
+    font-family: 'Arial', sans-serif; /* Font yang bersih dan mudah dibaca */
+    color: #333; /* Warna teks */
+    background-color: #fef9e7; /* Warna latar belakang kuning lembut */
+    border: 1px solid #ccc; /* Garis tepi tipis */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan dalam */
+    resize: vertical; /* Hanya ubah tinggi */
+    transition: all 0.3s ease; /* Animasi transisi */
+  }
+
+  /* Efek hover untuk IBAROH */
+  textarea.IBAROH:hover {
+    background-color: #fff; /* Putih lebih cerah */
+    border-color: #007BFF; /* Warna biru lembut */
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15); /* Perkuat bayangan */
+  }
+
+  /* Efek fokus untuk IBAROH */
+  textarea.IBAROH:focus {
+    outline: none; /* Hilangkan outline default */
+    border-color: #007BFF; /* Warna biru fokus */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2); /* Lingkaran fokus lembut */
+  }
+  </style>
+</head>
+<body>
+
+<div class="buttons-container">
+  <!-- Tombol untuk menampilkan form -->
+  <!-- 12 tombol -->
+  <button class="toggleFormBtn" data-form-id="1">THOHAROH</button>
+  <button class="toggleFormBtn" data-form-id="2">SHOLAT</button>
+  <button class="toggleFormBtn" data-form-id="3">ZAKAT</button>
+  <button class="toggleFormBtn" data-form-id="4">PUASA</button>
+  <button class="toggleFormBtn" data-form-id="5">HAJI</button>
+  <button class="toggleFormBtn" data-form-id="6">MUAMALAH</button>
+  <button class="toggleFormBtn" data-form-id="7">MUNAKAHAH</button>
+  <button class="toggleFormBtn" data-form-id="8">JINAYAH & QHODLO</button>
+  <button class="toggleFormBtn" data-form-id="9">KURBAN & NADZAR</button>
+  <button class="toggleFormBtn" data-form-id="10">MAKANAN</button>
+  <button class="toggleFormBtn" data-form-id="11">LAIN LAIN</button>
+  <button class="toggleFormBtn" data-form-id="12">AMALAN & DOA</button>
+</div>
+
+<!-- Overlay untuk pop-up -->
+<div id="popupOverlay" class="popup-overlay"></div>
+
+<!-- Kontainer Pop-up Form -->
+<div id="popupFormContainer" class="popup-form-container">
+  <form id="popupForm" method="post">
+    <textarea class="JUDUL" name="JUDUL" id="judulInput" placeholder="Judul" required></textarea>
+    <textarea class="IBAROH" name="IBAROH" id="ibaroInput" placeholder="Tulis rumusan disini ..." required></textarea>
+    <input class="kirim" type="submit" value="Kirim">
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleFormBtns = document.querySelectorAll('.toggleFormBtn');
+    const popupFormContainer = document.getElementById('popupFormContainer');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupForm = document.getElementById('popupForm');
+    const ibaroInput = document.getElementById('ibaroInput');
+    let currentFormId = null;
+
+    // URL pengiriman untuk masing-masing form
+    const formUrls = {
+      1: 'https://script.google.com/macros/s/AKfycbx6VoY8OswyeCYjhjyfCsXNMV937AmMXyiBHJPXMC_oy8VynIhJRxyI8VjRknUpOouS/exec',
+      2: 'https://script.google.com/macros/s/AKfycbwncBiUg4R8FAAYXRAF0uahsBYCxfvbzpe4_QqqwxFGjzYqjbKJBMhPPe5Rb1iZMdhcUA/exec',
+      3: 'https://script.google.com/macros/s/AKfycbyjik_db33pzqB1aBM-UGDbmKOx2J0NlYDQYIVj8bt3bOr7sBdaAr_bunBODjzrV8kC/exec',
+      4: 'https://script.google.com/macros/s/AKfycbyw2pwFdPO0dUucTTwKO2gKtA2ragG0ddtLjlkdhtKG5xMdYRl9YZOUDmaJnSi9xAu2uA/exec',
+      5: 'https://script.google.com/macros/s/AKfycbxZWFwMnyy2_3uj0dAup3Vvxr9PPScEGFyD_Hak__HASqrPTzKzwItNoiQXQ2MJzY6_vg/exec',
+      6: 'https://script.google.com/macros/s/AKfycbyOZRKX1NEubTTkIXkOWGkWvsAEBlY82c6umqwTa_IfTN2l2HIFjZqrJdextoK_LzJZ/exec',
+      7: 'https://script.google.com/macros/s/AKfycbwgh_HuPhT4GSQKc0lMEWDyaKpeEsJl96YChYYuR0nkEi4SAOngMJijONebG3UUbIrOww/exec',
+      8: 'https://script.google.com/macros/s/AKfycbzdArlHrX4yOh8lW4ka1WWvSp4szPvS_k1E_UjF_Gn26RbPkcc4Th80fun6G_IOus8w2Q/exec',
+      9: 'https://script.google.com/macros/s/AKfycbwbA9B1sJGqbEDjxominO7q8O70Z5K71UNEqMnmBrWyNWa8_33126DtCTMbN-kg954/exec',
+      10: 'https://script.google.com/macros/s/AKfycbzN_gPSsCAkHbKazQHydFSIOUc_8w-EGWumqiIrbNiQEf5JuqJUHExyokilPuKo8ILa/exec',
+      11: 'https://script.google.com/macros/s/AKfycbx7INRRxv1MrvQdktu5X5JDD6Zzjuf29C_jOnXroQxyrJMT6doT9qlyyeYGc0qsjL3Itw/exec',
+      12: 'https://script.google.com/macros/s/AKfycbwtVDFF79xO70-jpomUW-PNCbavmQHrsaV3RHFK99lF1YYXyZwW90yoFPIvhgICzUaYcw/exec',
+    };
+
+    // Fungsi untuk menampilkan atau menyembunyikan pop-up
+    function togglePopupForm(formId) {
+      const isHidden = popupFormContainer.style.display === 'none' || popupFormContainer.style.display === '';
+      popupFormContainer.style.display = isHidden ? 'block' : 'none';
+      popupOverlay.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) {
+        popupForm.reset(); // Reset form setiap kali ditampilkan
+        currentFormId = formId; // Simpan ID form yang sedang digunakan
+      }
+    }
+
+    // Event listener untuk tombol
+    toggleFormBtns.forEach(button => {
+      button.addEventListener('click', () => {
+        const formId = button.getAttribute('data-form-id');
+        togglePopupForm(formId);
+      });
+    });
+
+    // Menutup pop-up saat overlay di-klik
+    popupOverlay.addEventListener('click', () => togglePopupForm(null));
+
+    // Menangani pengiriman form
+    popupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!currentFormId) {
+        alert('Terjadi kesalahan, tidak ada form yang aktif.');
+        return;
+      }
+
+      // Validasi bahasa Arab
+      const isArabic = /[\u0600-\u06FF]/.test(ibaroInput.value);
+      ibaroInput.style.direction = isArabic ? 'rtl' : 'ltr';
+
+      // Menyiapkan data form untuk dikirim
+      const formData = new FormData(popupForm);
+      for (let [key, value] of formData.entries()) {
+        formData.set(key, value.replace(/<br>/g, '\n'));
+      }
+
+      // Kirim data ke URL form yang sesuai
+      fetch(formUrls[currentFormId], {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(`Form ${currentFormId} berhasil dikirim!`);
+          console.log(`Success form ${currentFormId}:`, data);
+          togglePopupForm(null); // Tutup form setelah pengiriman
+        })
+        .catch(error => {
+          alert(`Terjadi kesalahan saat mengirim form ${currentFormId}.`);
+          console.error(`Error form ${currentFormId}:`, error.message);
+        });
+    });
+  });
+</script>
+
+</body>
+</html>

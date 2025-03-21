@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Halaman Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover; /* Menyesuaikan ukuran gambar dengan layar */
+            background-position: center; /* Memusatkan gambar */
+            background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+        }
+        .container {
+            text-align: center;
+            display: grid;
+            gap: 10px;
+            height: 70%;
+            width: 70%;
+        }
+        .button {
+            padding: 5px;
+            font-size: 18px;
+            color: white;
+            background: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+        .button span {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .button:hover {
+            background: #f7f7f7;
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 769px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, auto);
+            }
+        }
+        .copyright {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+     <script>
+        // Cek apakah pengguna sudah login
+        if (localStorage.getItem('loggedin') !== 'true') {
+            window.location.href = 'login.html';
+        } else {
+            // Menyembunyikan URL setelah berhasil login
+            history.replaceState(null, null, ' ');
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedin');
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="window.location.href='jawab.html'">
+            <img src="/GAMBAR/DISKUSI.png" alt="Icon 1"><span>Ruang konsultasi</span>
+        </button>
+        <button class="button" onclick="window.location.href='https://example2.com'">
+            <img src="/GAMBAR/MEDIA.png" alt="Icon 2"><span>Uploade kabar</span>
+        </button>
+        <button class="button" onclick="window.location.href='../fitur/input.html'">
+            <img src="/GAMBAR/RUMUSAN.png" alt="Icon 3"><span>Uploade rumusan</span>
+        </button>
+        <button class="button" onclick="window.location.href='/data/maktabah/library.html'">
+            <img src="/GAMBAR/MAKTABAH.png" alt="Icon 4"><span>Uploade kitab PDF</span>
+        </button>
+        <button class="button" onclick="window.location.href='https://example5.com'">
+            <img src="/GAMBAR/administrator.png" alt="Icon 5"><span>Admin</span>
+        </button>
+        <button class="button" onclick="window.location.href='https://example6.com'">
+            <img src="/GAMBAR/SOAL.png" alt="Icon 6"><span>Cek Asilah</span>
+        </button>
+    </div>
+        <p class="copyright">
+            &copy; 2025 admin KKF. All rights reserved.
+        </p>
+</body>
+</html>

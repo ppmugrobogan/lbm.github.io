@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Edu+TAS+Beginner:wght@400..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 95%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+
+        header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .banner {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .content {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        article {
+            margin-bottom: 20px;
+            text-align: justify; /* Menjadikan teks rata kiri dan kanan */
+        }
+
+        article h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        article p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .dialogue {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #3080f7;
+        }
+
+        .dialogue p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .dialogue strong {
+            color: #333;
+        }
+        .reaction-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .reaction-buttons button,
+        .reaction-buttons p {
+            background: none;
+            border: none;
+            font-size: 0.7em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+        }
+
+        .reaction-buttons button:hover,
+        .reaction-buttons button:focus {
+            color: #007bff;
+        }
+
+        .reaction-buttons .icon {
+            font-size: auto;
+        }
+
+        .liked {
+            color: #007bff;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .share-buttons button {
+            display: flex;
+            align-items: center;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+
+        .share-buttons button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .share-buttons button:hover {
+            background: #0056b3;
+        }
+
+        .share-buttons .fa {
+            font-size: 1.2em;
+        }
+
+        .share-buttons #copyUrlButton {
+            background: #28a745;
+        }
+
+        .share-buttons #copyUrlButton:hover {
+            background: #218838;
+        }
+        footer{
+    background-color: rgb(0, 115, 135);
+        }
+        .social-logo {
+            height: 25px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        .social-links a {
+            color: inherit; /* Menggunakan warna dari parent element */
+            text-decoration: none; /* Menghilangkan garis bawah */
+        }
+        .social-links a:visited {
+            color: inherit; /* Menggunakan warna dari parent element */
+        }
+        .social-links a:hover, a:active {
+            text-decoration: underline; /* Menambah garis bawah pada hover dan active */
+        }
+                .share-buttons button {
+                    background-color: #25D366; /* WhatsApp color */
+                }
+                .share-buttons button:last-child {
+                    background-color: #3080f7; /* Default color for share button */
+                }
+                .share-buttons button img {
+                    margin-right: 8px;
+                    width: 20px;
+                    height: 20px;
+                }
+        .kontak {
+            height: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+        .copyright {
+            display: block;
+            height: 10px;
+            margin-bottom: 30px;
+            margin-top: -25px;
+            margin-left: 150px;
+        }
+        .judul{
+            font-weight: bold;
+        }
+        .ibaroh {
+            padding: 5px;
+            max-width: 800px;
+            }
+            .kitab {
+            padding: 5px;
+            max-width: 800px;
+            font-weight: bold;
+            margin-bottom: -15px;
+            list-style-type: none; /* Menghilangkan bullet default pada list */
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .kitab::before {
+            content: "\f02d"; /* Kode Font Awesome untuk ikon buku */
+            font-family: "Font Awesome 5 Free"; /* Nama font */
+            font-weight: 900; /* Mengatur berat font */
+            font-size: 15px; /* Ukuran ikon */
+            margin-left: 10px; /* Menambahkan jarak antara ikon dan teks */
+            color: #666; /* Warna ikon buku */
+        }
+
+        /* Gaya untuk section bahasa Arab */
+        .arabic-section {
+        direction: rtl; /* Arah teks dari kanan ke kiri */
+        font-family: "Traditional Arabic", serif; /* Font untuk teks Arab */
+        font-size: 1em; /* Ukuran font seragam */
+        line-height: 1.6; /* Jarak antar baris */
+        color: #333; /* Warna teks */
+        padding: 0px; /* Jarak dalam */
+        margin: 5px 0; /* Jarak luar atas dan bawah */
+        }
+
+        
+        .title {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #00a85a;
+        }
+
+        .name {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .name:last-child {
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1></h1>
+        </header>
+        <div class="banner">
+            <img src="" alt="Banner kajian">
+        </div>
+        <section class="content">
+            <article>
+                <p class="judul">Deskripsi masalah :</p>
+                <p></p>
+                <p class="judul">Pertanyaan :</p>
+                <p></p>
+                <p class="judul">Jawaban :</p>
+                <p></p>
+                <p class="judul">Catatan :</p>
+                <p></p>
+            <div class="arabic-section">
+                <p class="kitab"></p>
+                <p class="ibaroh"></p>
+            </div>
+                <article class="reaksi">
+                    <div class="reaction-buttons">
+                        <button id="likeButton">
+                            <span class="icon"><i class="fas fa-thumbs-up"></i></span> Like: <span id="likeCount">0</span>
+                        </button>
+                        <p><span class="icon"><i class="fas fa-eye"></i></span> Pengunjung: <span id="viewCount">0</span></p>
+                    </div>
+                    <div class="share-buttons">
+                        <button id="shareWhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                        <button id="shareOther">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button id="copyUrlButton">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="title">Mushohih</div>
+                        <div class="name"></div>
+                    <div class="section perumus"></div>
+                        <div class="title">Perumus</div>
+                        <div class="name"></div>
+                    <div class="section moderator"></div>
+                        <div class="title">Moderator</div>
+                        <div class="name"></div>
+                    <div class="section notulen"></div>
+                        <div class="title">Notulen</div>
+                        <div class="name"></div>
+                </article>
+                <script>
+                    const scriptUrl = '';
+                    const articleId = ''; // Ganti dengan ID artikel yang sesuai
+
+                    async function fetchData(action) {
+                        try {
+                            const response = await fetch(`${scriptUrl}?action=${action}&articleId=${articleId}`);
+                            if (!response.ok) throw new Error('Respon jaringan tidak oke');
+                            const data = await response.text();
+                            return data;
+                        } catch (error) {
+                            console.error(`Kesalahan fetch: ${error}`);
+                            return '0'; // Mengembalikan '0' jika terjadi kesalahan
+                        }
+                    }
+
+                    async function getLike() {
+                        const likeCount = await fetchData('getLike');
+                        document.getElementById('likeCount').textContent = likeCount;
+                    }
+
+                    async function setLike() {
+                        const likeCount = await fetchData('setLike');
+                        document.getElementById('likeCount').textContent = likeCount;
+                    }
+
+                    async function getView() {
+                        const viewCount = await fetchData('getView');
+                        document.getElementById('viewCount').textContent = viewCount;
+                    }
+
+                    async function setView() {
+                        const viewCount = await fetchData('setView');
+                        document.getElementById('viewCount').textContent = viewCount;
+                    }
+
+                    document.getElementById('likeButton').addEventListener('click', async function() {
+                        await setLike();
+                        this.classList.add('liked');
+                    });
+
+                    window.onload = async function() {
+                        await getLike();
+                        await getView();
+                        await setView();
+                    };
+
+                    document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('shareWhatsApp').addEventListener('click', function() {
+                // Ambil judul halaman
+                const title = document.title;
+
+                // URL sosial media (sesuaikan dengan URL yang sesuai)
+                const socialMediaUrls = {
+                    facebook: '',
+                    instagram: '',
+                    youtube: '',
+                    tiktok: ''
+                };
+
+                // Buat teks dengan judul halaman dan URL sosial media
+                const url = window.location.href;  // Ambil URL halaman saat ini
+                const text = `${title}\n${url}\n__________\nIkuti juga sosial media kami :\nFacebook: ${socialMediaUrls.facebook}\nInstagram: ${socialMediaUrls.instagram}\nYouTube: ${socialMediaUrls.youtube}\nTikTok: ${socialMediaUrls.tiktok}`;
+
+                // Encode teks untuk digunakan dalam URL
+                const encodedText = encodeURIComponent(text);
+
+                // Kirim URL ke MIT App Inventor
+                window.AppInventor.setWebViewString(text);
+
+                // Mengarahkan ke WhatsApp
+                window.location.href = `whatsapp://send?text=${encodedText}`;
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('shareOther').addEventListener('click', function() {
+                // Ambil judul halaman
+                const title = document.title;
+
+                // URL sosial media (sesuaikan dengan URL yang sesuai)
+                const socialMediaUrls = {
+                    facebook: '',
+                    instagram: '',
+                    youtube: '',
+                    tiktok: ''
+                };
+
+                // Buat teks dengan judul halaman dan URL sosial media
+                const url = window.location.href;  // Ambil URL halaman saat ini
+                const text = `${title}\n${url}\n__________\nIkuti juga sosial media kami :\nFacebook: ${socialMediaUrls.facebook}\nInstagram: ${socialMediaUrls.instagram}\nYouTube: ${socialMediaUrls.youtube}\nTikTok: ${socialMediaUrls.tiktok}`;
+
+                // Kirim URL ke MIT App Inventor
+                window.AppInventor.setWebViewString(text);
+
+                // Cek apakah browser mendukung navigator.share
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title, // Judul konten
+                        text: text, // Teks yang akan dibagikan
+                        url: url  // URL yang akan dibagikan
+                    }).catch(console.error); // Tangani error jika ada
+                }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('copyUrlButton').addEventListener('click', function() {
+                // Ambil URL saat ini
+                const url = window.location.href;
+
+                // URL sosial media (sesuaikan dengan URL yang sesuai)
+                const socialMediaUrls = {
+                    facebook: '',
+                    instagram: '',
+                    youtube: '',
+                    tiktok: ''
+                };
+
+                // Buat teks dengan judul halaman dan URL sosial media
+                const title = document.title;
+                const text = `${title}\n${url}\n__________\nIkuti juga sosial media kami :\nFacebook: ${socialMediaUrls.facebook}\nInstagram: ${socialMediaUrls.instagram}\nYouTube: ${socialMediaUrls.youtube}\nTikTok: ${socialMediaUrls.tiktok}`;
+
+                // Salin teks ke clipboard
+                navigator.clipboard.writeText(text).then(() => {
+                    console.log("Teks berhasil disalin ke clipboard!");
+                }).catch(err => {
+                    console.error("Gagal menyalin teks: ", err);
+                });
+            });
+        });
+
+                </script>  
+                 <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // URL media sosial
+                        const socialMediaUrls = {
+                            facebook: '',
+                            instagram: '',
+                            youtube: '',
+                            tiktok: ''
+                        };
+
+                        // Ambil judul halaman dan URL saat ini
+                        const title = document.title;
+                        const url = window.location.href;
+
+                        // Buat teks yang akan dibagikan
+                        const text = `${title}\n${url}\n__________\nIkuti juga sosial media kami :\nFacebook: ${socialMediaUrls.facebook}\nInstagram: ${socialMediaUrls.instagram}\nYouTube: ${socialMediaUrls.youtube}\nTikTok: ${socialMediaUrls.tiktok}`;
+                        const encodedText = encodeURIComponent(text);
+
+                        // Fungsi untuk membagikan melalui WhatsApp
+                        document.getElementById('shareWhatsApp').addEventListener('click', function() {
+                            window.open(`https://wa.me/?text=${encodedText}`, '_blank');
+                        });
+
+                        // Fungsi untuk membagikan melalui fitur berbagi bawaan perangkat
+                        document.getElementById('shareOther').addEventListener('click', function() {
+                            if (navigator.share) {
+                                navigator.share({
+                                    title: title,
+                                    text: text,
+                                    url: url
+                                }).catch(console.error);
+                            } else {
+                                alert('Fitur berbagi tidak didukung pada perangkat ini.');
+                            }
+                        });
+                    });
+                </script>                                             
+            </article>
+        </section>
+    </div>
+    <div class="section mushohih">
+  
+    <footer>
+        <div class="footer-content">
+            <img src="../kontak.png" class="kontak" alt="kontak">
+        </div>
+    </footer>
+    
+    <a href="PROGRAM/KONTEN1.html" class="konten">
+        <span>Rumusan kusus</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>   
+      <div id="image-container"></div>
+          <!-- Second table -->
+          <div class="chat-container">
+            <div class="chat-body" id="chatBody0">
+              <div class="TABEL">
+                <table id="dataTable0">
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <a href="PROGRAM/KONTEN2.html" class="konten1">
+            <span>Kajian terbaru</span>
+            <i class="fas fa-chevron-right"></i>
+          </a>     
+              <!-- First table -->
+          <div class="chat-container">
+            <div class="chat-body" id="chatBody">
+              <div class="TABEL">
+                <table id="dataTable1">
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <a href="PROGRAM/KONTEN3.html" class="konten1">
+            <span>Video terbaru</span>
+            <i class="fas fa-chevron-right"></i>
+          </a> 
+          <!-- Second table -->
+          <div class="chat-container">
+            <div class="chat-body" id="chatBody2">
+              <div class="TABEL">
+                <table id="dataTable2">
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <script>
+            function isArabic(text) {
+              const arabicRegex = /[\u0600-\u06FF]/;
+              return arabicRegex.test(text);
+            }
+          
+            const API_KEY = 'AIzaSyA8x0yI8zCPUgZktmGNvQVTzhm1fdZ0K74';
+      
+            const SPREADSHEET_ID_0 = '1PY4rCswtO0w9MfK0GmDf30kFlcDPwFtNyNG4cX2BdOY';
+            const RANGE_0 = 'Sheet1';
+          
+            const SPREADSHEET_ID_1 = '15NVUJKAU75iCLfT1f0VNLNUEOM-thC4PdTXLM-9oGFw';
+            const RANGE_1 = 'Sheet1';
+          
+            const SPREADSHEET_ID_2 = '1fzKhjJX_NFcBltgK6Pk4805zl7wxlQkNrW0ws0jIVp8';
+            const RANGE_2 = 'Sheet1';
+          
+            function processText(text) {
+              let processedText = text.replace(/\*(.*?)\*/g, '<span class="underline-text">$1</span>');
+              processedText = processedText.replace(/\#(.*?)\#/g, '<span class="center-text">$1</span>');
+              processedText = processedText.replace(/\^(.*?)\^/g, '<span class="quote-text">$1</span>');
+              processedText = processedText.replace(/\$(.*?)\$/g, '<span class="bold">$1</span>');
+          
+              return processedText;
+            }
+          
+            function processDataAndPopulateTable(data, tableId) {
+                const values = data.values.reverse(); // Membalik urutan data
+              const tableBody = document.querySelector(`#${tableId} tbody`);
+              tableBody.innerHTML = ''; // Clear the table content before populating it
+              const imageContainer = document.getElementById('image-container');
+              imageContainer.innerHTML = ''; // Clear the image container content before populating it
+          
+              values.forEach(row => {
+                const newRow = document.createElement('tr'); // Create a new row element for each row
+                tableBody.appendChild(newRow); // Append the row to the table body
+          
+                // Create a new div for each row
+                const newRowDiv = document.createElement('div');
+                newRowDiv.classList.add('table-row'); // Add class for styling
+                newRowDiv.id = 'halaman'; // Add ID
+          
+                // Get URL from column E (index 4)
+                const url = row[4];
+          
+                newRowDiv.addEventListener('click', function() {
+        const cleanUrl = url.replace(/^https?:\/\//, '');
+        const finalUrl = `https://${cleanUrl}`;
+        window.location.href = finalUrl;
+      });
+                newRow.appendChild(newRowDiv); // Insert the row div into the table
+      
+                row.forEach((cellValue, index) => {
+                  const newCell = document.createElement('td');
+                  const isArabicText = isArabic(cellValue);
+          
+                  if (cellValue.trim() === '-') {
+                    newCell.style.display = 'none';
+                  } else {
+                    if (isArabicText) {
+                      newCell.classList.add('rtl');
+                    } else {
+                      newCell.classList.add('indonesia');
+                    }
+          
+                    const newText = document.createElement('div');
+                    newText.innerHTML = processText(cellValue).replace(/\n/g, '<br>');
+                    newCell.appendChild(newText);
+          
+                    // If cell is column A (index 0), process image URL and hide text
+                    if (index === 0 && cellValue.trim() !== '-') {
+                      const imgTag = document.createElement('img');
+                      const imageId = extractIdFromUrl(cellValue);
+                      if (imageId) {
+                        imgTag.src = `https://drive.google.com/thumbnail?id=${imageId}`;
+                        imgTag.alt = 'Page Image';
+                        imgTag.classList.add('table-image'); // Add class for styling image
+                        newCell.appendChild(imgTag);
+                      } else {
+                        console.log('ID not found in URL.');
+                      }
+                      newCell.classList.add('hidden-text'); // Add class to hide text
+                    }
+                  }
+                  newRowDiv.appendChild(newCell); // Insert cell into row div
+                });
+              });
+            }
+          
+            function getData(spreadsheetId, range, tableId) {
+              fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${API_KEY}`)
+                .then(response => response.json())
+                .then(data => processDataAndPopulateTable(data, tableId))
+                .catch(error => console.error('Error fetching data:', error));
+            }
+          
+            
+            function extractIdFromUrl(url) {
+        // Coba ekstrak ID dari format /d/<ID>/
+        let regex = /\/d\/(.*?)\//;
+        let match = url.match(regex);
+        
+        // Jika tidak ditemukan, coba ekstrak dari format open?id=<ID>
+        if (!match || !match[1]) {
+          regex = /open\?id=(.*?)(?:&|$)/;
+          match = url.match(regex);
+        }
+      
+        // Jika ditemukan ID, kembalikan nilainya
+        if (match && match[1]) {
+          return match[1];
+        }
+        
+        return null; // Jika tidak ditemukan ID
+      }
+            getData(SPREADSHEET_ID_0, RANGE_0, 'dataTable0');
+            getData(SPREADSHEET_ID_1, RANGE_1, 'dataTable1');
+            getData(SPREADSHEET_ID_2, RANGE_2, 'dataTable2');
+          </script>
+          
+    <div class="social-links">
+      <a href="https://web.facebook.com/ppmu.grobogan" target="_blank">
+          <img src="../fb.png" alt="Facebook Logo" class="social-logo">
+      </a>
+      <a href="https://www.youtube.com/@PPMUGrobogan" target="_blank">
+          <img src="../yt.png" alt="YouTube Logo" class="social-logo">
+      </a>
+      <a href="https://www.instagram.com/ppmu.grobogan" target="_blank">
+          <img src="../ig.png" alt="Instagram Logo" class="social-logo">
+      </a>
+      <a href="https://www.tiktok.com/@ppmu.grobogan" target="_blank">
+          <img src="../tiktok.png" alt="TikTok Logo" class="social-logo">
+      </a>
+      <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <img src="/GAMBAR/kkf1.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="/GAMBAR/kkf2.jpg" alt="Image 2">
+            </div>
+        </div>
+    </div>
+  <script>
+      const slider = document.getElementById('slider');
+      let currentIndex = 0;
+  
+      function autoSlide() {
+          // Toggle antara gambar pertama (index 0) dan kedua (index 1)
+          currentIndex = currentIndex === 0 ? 1 : 0;
+  
+          // Geser slider ke posisi yang sesuai
+          slider.style.transform = `translateX(${-currentIndex * 330}px)`;
+      }
+  
+      // Ganti gambar setiap 3 detik
+      setInterval(autoSlide, 3000);
+  </script>
+  </div>
+  <a href="#" target="_blank">
+      <img src="../copyright.png" alt="TikTok Logo" class="copyright">
+  </a>
+</body>
+</html>
